@@ -289,7 +289,7 @@ class INA_Class {
   INA_Class(uint8_t expectedDevices = 0);
   ~INA_Class();
   uint8_t     begin(const uint16_t maxBusAmps, const uint32_t microOhmR,
-                    const uint8_t deviceNumber = UINT8_MAX);
+                    const uint8_t deviceNumber = UINT8_MAX, const uint8_t sda = 2, const uint8_t scl = 14);
   void        setI2CSpeed(const uint32_t i2cSpeed = INA_I2C_STANDARD_MODE) const;
   void        setMode(const uint8_t mode, const uint8_t deviceNumber = UINT8_MAX);
   void        setAveraging(const uint16_t averages, const uint8_t deviceNumber = UINT8_MAX);

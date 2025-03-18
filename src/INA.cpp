@@ -214,7 +214,7 @@ void INA_Class::setI2CSpeed(const uint32_t i2cSpeed) const {
   Wire.setClock(i2cSpeed);
 }  // of method setI2CSpeed
 uint8_t INA_Class::begin(const uint16_t maxBusAmps, const uint32_t microOhmR,
-                         const uint8_t deviceNumber) {
+                         const uint8_t deviceNumber, const uint8_t sda, const uint8_t scl) {
   /*! @brief     Initializes the contents of the class
       @details   Searches for possible devices and sets the INA Configuration details, without
                  which meaningful readings cannot be made. If it is called without the optional
@@ -254,7 +254,7 @@ uint8_t INA_Class::begin(const uint16_t maxBusAmps, const uint32_t microOhmR,
 #else
     maxDevices = 32;
 #endif
-    Wire.begin(INA_SDA, INA_SCL);  // Start the I2C bus with default pins
+    Wire.begin(sda, scl);  // Start the I2C bus with default pins
 
     if (maxDevices > 255)  // Limit number of devices to an 8-bit number
     {

@@ -14,13 +14,6 @@
   #include <EEPROM.h>  ///< Include the EEPROM library for AVR-Boards
 #endif
 
-#ifndef INA_SDA
-  #define INA_SDA 4  ///< Default SDA pin for ESP32
-#endif
-#ifndef INA_SCL
-  #define INA_SCL 5  ///< Default SCL pin for ESP32
-#endif
-
 inaDet::inaDet() {}  ///< constructor for INA Detail class
 inaDet::inaDet(inaEEPROM &inaEE) {
   /*! @brief     INA Detail Class Constructor (Overloaded)

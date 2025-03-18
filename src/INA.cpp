@@ -14,11 +14,11 @@
   #include <EEPROM.h>  ///< Include the EEPROM library for AVR-Boards
 #endif
 
-#ifndef SDA
-  #define SDA 4  ///< Default SDA pin for ESP32
+#ifndef INA_SDA
+  #define INA_SDA 4  ///< Default SDA pin for ESP32
 #endif
-#ifndef SCL
-  #define SCL 5  ///< Default SCL pin for ESP32
+#ifndef INA_SCL
+  #define INA_SCL 5  ///< Default SCL pin for ESP32
 #endif
 
 inaDet::inaDet() {}  ///< constructor for INA Detail class
@@ -261,7 +261,7 @@ uint8_t INA_Class::begin(const uint16_t maxBusAmps, const uint32_t microOhmR,
 #else
     maxDevices = 32;
 #endif
-    Wire.begin(SDA, SCL);  // Start the I2C bus with default pins
+    Wire.begin(INA_SDA, INA_SCL);  // Start the I2C bus with default pins
 
     if (maxDevices > 255)  // Limit number of devices to an 8-bit number
     {
